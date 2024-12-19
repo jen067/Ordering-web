@@ -116,6 +116,7 @@ main{
     font-size: 28px;
     color: var(--Green02);
     font-weight: 900;
+    margin-top: 20px;
 }
 
 .total-wrapper span{
@@ -188,6 +189,10 @@ main{
 
 #old-page-3-1 .order-title,#old-page-3-2 .order-title,#old-page-3-3 .order-title{
     align-items: flex-end;
+}
+
+#old-page-3-1,#old-page-3-2,#old-page-3-3{
+    padding: 2rem 0 4rem 0;
 }
 
 /*page-1*/
@@ -321,6 +326,10 @@ main{
 
 .normal-cost-wrapper span{
     font-size: 24px;
+}
+
+#normal-page .total-wrapper{
+    margin-top: 0;
 }
 
 
