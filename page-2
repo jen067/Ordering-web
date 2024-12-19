@@ -14,7 +14,7 @@
 </head>
 <body>
     <main id="page-1">
-        <div class="title-1">早安！歡迎使用自助點餐</div>
+        <div class="title-1">選擇您的點餐模式</div>
         <img src="#" alt="img">
         <button class="button-1">點擊開始點餐</button>
     </main>

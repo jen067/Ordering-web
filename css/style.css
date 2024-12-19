@@ -1,0 +1,49 @@
+:root{
+    --Green01: #A7C957;
+    --Green02: #8CB369;
+}
+body{
+    margin: 0 0;
+    font-family: 'Inter';
+}
+main{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    height: 133px;
+    width: 288px;
+    border-radius: 16px;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);;
+    font-size: 36px;
+}
+.title-1{
+    font-weight: 700;
+}
+.button-1{
+    border: solid 2px var(--Green02);
+    color: var(--Green02);
+    background-color: white;
+}
+.button-1:hover{
+    color: white;
+    background-color: #8CB369;
+}
+
+/*page-1*/
+#page-1 .title-1{
+    font-size: 24px;
+}
+#page-1 img{
+    height: 300px;
+    width: 300px;
+    background-color: #8CB369;
+    margin: 1.5rem 0;
+}
+
+/*page-2*/
+#page-2 .title-1{}
