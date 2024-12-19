@@ -40,7 +40,7 @@ main{
 .title-1{
     font-weight: 900;
 }
-.button-1,.button-4,.button-6,.button-7{
+.button-1,.button-4,.button-6,.button-7,.button-8{
     border: solid 2px var(--Green02);
     color: var(--Green02);
     background-color: white;
@@ -100,6 +100,51 @@ main{
     color: #fff;
 }
 
+.cargo-btn-wrapper,.total-wrapper{
+    width: 314px;
+}
+
+.cargo-btn-wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-wrapper{
+    font-size: 28px;
+    color: var(--Green02);
+    font-weight: 900;
+}
+
+.total-wrapper span{
+    padding: 0 1rem;
+    font-size: 32px;
+    color: black;
+}
+
+#old-page-1>.button-7,#old-page-2>.button-8{
+    margin-bottom: 20px;
+}
+
+.button-7,.button-8{
+    display: inline-flex;
+    justify-content: space-around;
+    width: 314px;
+    height: 160px;
+    color: black;
+}
+
+.order-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 314px;
+    margin-bottom: 27px;
+}
+
+.order-title .title-1{
+    font-size: 40px;
+}
+
 /*page-1*/
 #page-1 .title-1{
     font-size: 24px;
@@ -130,63 +175,34 @@ main{
 .button-5,.button-6{
     display: flex;
 }
-.back-btn-wrapper,.cargo-btn-wrapper{
+.back-btn-wrapper{
     display: flex;
     justify-content: flex-end;
     width: 80%;
 }
 
 /*old-page-1*/
-.order-title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 314px;
-    margin-bottom: 27px;
-}
-
-
-
-.order-title .title-1{
-    font-size: 40px;
-}
-
-
-
-#old-page-1>.button-7{
-    margin-bottom: 20px;
-}
-
-.button-7{
-    display: inline-flex;
-    gap: 1rem;
-    width: 314px;
-    height: 160px;
-    color: black;
-}
-
 .button-7 img{
     width: 172px;
     height: 124px;
     background-color: var(--Green02);
 }
 
-.cargo-btn-wrapper,.total-wrapper{
-    width: 314px;
+/*old-page-2*/
+.button-8 img{
+    width: 97px;
+    height: 124px;
+    background-color: var(--Green02);
 }
 
-.total-wrapper{
-    font-size: 28px;
-    color: var(--Green02);
-    font-weight: 900;
-}
-
-.total-wrapper span{
-    padding: 0 1rem;
+.btn-txt-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
     font-size: 32px;
-    color: black;
+    font-weight: 700;
 }
-
 
 
 
