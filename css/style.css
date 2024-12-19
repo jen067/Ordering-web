@@ -1,6 +1,8 @@
 :root{
     --Green01: #A7C957;
     --Green02: #8CB369;
+    --Yellow01: #FFE496;
+    --Yellow02: #EAC143;
 }
 
 *{
@@ -17,6 +19,7 @@ html,body{
 body{
     font-family: 'Inter';
     padding: 2rem 0;
+    position: relative;
 }
 main{
     height: 100%;
@@ -127,7 +130,9 @@ main{
 
 .button-7,.button-8{
     display: inline-flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 1rem;
     width: 314px;
     height: 160px;
     color: black;
@@ -141,7 +146,7 @@ main{
     margin-bottom: 27px;
 }
 
-.order-title .title-1{
+.title-1{
     font-size: 40px;
 }
 
@@ -210,6 +215,115 @@ main{
     justify-content: space-between;
     width: 80%;
 }
+
+/*normal-page*/
+#normal-page{
+    justify-content: start;
+}
+.normal-title{
+    background-color: var(--Green02);
+    padding: .5rem 0;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.normal-title a{
+    position: absolute;
+    left: 1rem;
+    color: white;
+}
+
+.normal-title .ri-arrow-go-back-line{
+    font-size: 24px;
+}
+
+.normal-nav{
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+    width: 307px;
+    padding-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+.normal-nav .nav-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99px;
+    height: 36px;
+    background-color: var(--Yellow01);
+    opacity: 0.5;
+    border-radius: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nav-active{
+    opacity: 1!important;
+    background-color: var(--Yellow02)!important;
+}
+
+.button-9{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1rem;
+    height: 119px;
+    width: 307px;
+    border-radius: 16px;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.btn-wrapper{
+    display: none;
+}
+
+.normal-active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-9 img{
+    width: 123px;
+    height: 102px;
+    background-color: var(--Green02);
+}
+
+.button-9 .btn-txt-wrapper{
+    font-size: 28px;
+    color: black;
+}
+
+.button-9 .btn-txt-wrapper span{
+    font-size: 24px;
+}
+
+.normal-cost-wrapper{
+    width: 307px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.normal-cost-wrapper .total-wrapper{
+    font-size: 24px;
+}
+
+.normal-cost-wrapper span{
+    font-size: 24px;
+}
+
+
 
 
 
