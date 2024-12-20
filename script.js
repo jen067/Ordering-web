@@ -1,5 +1,12 @@
 window.onload = function () {
   const cards = document.querySelectorAll(".card");
+  const total = document.querySelectorAll(".total");
+  const quantityDisplay = document.querySelector(".quantity");
+  let priceCalc = 0;
+  let quantity = 1;
+  let finalProduct = "";
+  let finalQuantity = 0;
+  let finalPrice = 0;
 
   cards.forEach((card) => {
     card.addEventListener("click", function (event) {
@@ -26,11 +33,32 @@ window.onload = function () {
     const costSpan = productTitleDiv.querySelector(".cost");
     const cancel = document.querySelector(".cancel");
     productTitleDiv.querySelector("h3").textContent = selectedProduct.name;
+    finalProduct = productTitleDiv.querySelector("h3").textContent;
     costSpan.textContent = selectedProduct.price;
     cancel.href = selectedProduct.fromPage;
+    // 點餐數量切換
+    document.querySelector(".increase").addEventListener("click", () => {
+      quantity++;
+      quantityDisplay.textContent = quantity;
+      if (quantity > 1) {
+        let button = document.querySelector(".decrease");
+        button.style.setProperty("background-color", "#EAC143", "important");
+      }
+      priceCalc += selectedProduct.price * quantity;
+    });
+    document.querySelector(".decrease").addEventListener("click", () => {
+      if (quantity > 1) quantity--;
+      quantityDisplay.textContent = quantity;
+      if (quantity == 1) {
+        let button = document.querySelector(".decrease");
+        button.style.setProperty("background-color", "#D9D9D9", "important");
+      }
+      priceCalc += selectedProduct.price * quantity;
+    });
   } else {
     console.error("no data");
   }
+  console.log(finalProduct);
 };
 
 const navBtn = document.querySelectorAll(".nav-btn");
@@ -38,16 +66,6 @@ const btnWrapper = document.querySelectorAll(".btn-wrapper");
 const setWrapper = document.querySelector(".set-wrapper");
 const mainWrapper = document.querySelector(".main-wrapper");
 const drinkWrapper = document.querySelector(".drink-wrapper");
-const total = document.querySelectorAll(".total");
-const quantityDisplay = document.querySelector(".quantity");
-const cancel = document.querySelector(".cancel");
-let priceCalc = 0;
-let quantity = 1;
-
-// 修正總價
-total.forEach((element) => {
-  element.innerHTML = priceCalc;
-});
 
 // 標準模式類別切換
 navBtn.forEach((e) => {
@@ -66,24 +84,3 @@ function navStatusChange() {
     drinkWrapper.classList.add("normal-active");
   }
 }
-
-// 點餐數量切換
-document.querySelector(".increase").addEventListener("click", () => {
-  quantity++;
-  quantityDisplay.textContent = quantity;
-  if (quantity > 1) {
-    let button = document.querySelector(".decrease");
-    button.style.setProperty("background-color", "#EAC143", "important");
-  }
-});
-
-document.querySelector(".decrease").addEventListener("click", () => {
-  if (quantity > 1) quantity--;
-  quantityDisplay.textContent = quantity;
-  if (quantity == 1) {
-    let button = document.querySelector(".decrease");
-    button.style.setProperty("background-color", "#D9D9D9", "important");
-  }
-});
-
-// 記憶先前連結
