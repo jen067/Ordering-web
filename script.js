@@ -96,7 +96,7 @@ window.onload = function () {
       const success = document.querySelector(".success");
 
       if (success) {
-        success.style.display = "block";
+        success.classList.add("pop-up");
       } else {
         console.error(".success element not found on this page.");
       }

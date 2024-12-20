@@ -167,14 +167,14 @@ main{
 }
 
 .button-7 img{
-    width: 172px;
+    width: 175px;
     height: 124px;
     background-color: var(--Green02);
 }
 
 .button-8 img{
-    width: 97px;
-    height: 124px;
+    width: 100px;
+    height: 125px;
     background-color: var(--Green02);
 }
 
@@ -506,19 +506,55 @@ main{
 }
 
 .success{
+    opacity: 0; /* 初始為透明 */
+    visibility: hidden; /* 初始為不可見 */
+    width: 80%;
     position: absolute;
-    width: 50%;
-    background-color: #D5EBC0;
-    z-index: 10;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 20px;
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    outline: 0;
     text-align: center;
-    padding: 2rem;
     font-weight: 600;
     letter-spacing: .5rem;
-    display: none;
+    padding: 2rem;
+    box-sizing: border-box;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
 }
+
+.pop-up{
+    animation: successShow 2s;
+}
+
+@keyframes successShow {
+    0% {
+        top: -8rem;
+        opacity: 0;
+        visibility: hidden; /* 確保不可見 */
+    }
+    15% {
+        visibility: visible; /* 動畫開始時設為可見 */
+        opacity: 1;
+        top: 2rem;
+    }
+    85% {
+        opacity: 1;
+        top: 2rem;
+    }
+    100% {
+        opacity: 0;
+        top: 4rem;
+        visibility: hidden; /* 動畫結束後設為不可見 */
+    }
+}
+
+
+
 
 
 
