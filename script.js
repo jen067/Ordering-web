@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const card = document.querySelector(".burger");
+  const card = document.querySelectorAll(".card");
   if (card) {
     card.addEventListener("click", (e) => {
-      e.preventDefault();
       console.log("成功綁定事件！");
     });
   } else {
