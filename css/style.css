@@ -366,6 +366,9 @@ main{
     color: var(--Green02);
     font-weight: 600;
 }
+.price{
+    display: inline;
+}
 
 .consist{
     width: 315px;
