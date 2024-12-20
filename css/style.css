@@ -447,7 +447,7 @@ main{
     font-weight: 900;
     font-size: 28px;
 }
-.amount, .total-money, .name, .num{
+.amount, .total-money, .num{
     display: inline;
     color: var(--Yellow02);
 }

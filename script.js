@@ -1,37 +1,35 @@
-window.onload = function() {
-  // 获取所有带有 'card' 类的 <a> 标签
-  const cards = document.querySelectorAll('.button.button-8.card');
-    
-  // 遍历每个卡片并为每个卡片添加点击事件
-  cards.forEach(card => {
-    card.addEventListener('click', function(event) {
-      // 获取当前点击卡片的名称和价格
-      const productName = this.querySelector('.name') ? this.querySelector('.name').textContent.trim() : this.querySelector('.btn-txt-wrapper').textContent.trim();
-      const price = this.querySelector('.price') ? this.querySelector('.price').textContent.trim() : this.querySelector('span').textContent.trim();
-      
-      // 将产品信息保存到 localStorage 或 sessionStorage 中
-      const productData = { name: productName, price: price };
-      localStorage.setItem('selectedProduct', JSON.stringify(productData)); // 或者使用 sessionStorage 一個記憶機制，確保頁面刷新十資料還在
+window.onload = function () {
+  const cards = document.querySelectorAll(".card");
 
-      // 跳转到 old-page-5.html
-      window.location.href = './old-page-5.html';
+  cards.forEach((card) => {
+    card.addEventListener("click", function (event) {
+      // 獲取商品名稱和價格
+      const productName = this.querySelector(".name").textContent.trim();
+      const price = this.querySelector(".price").textContent.trim();
+      // 獲取當前頁面路徑
+      const currentPage = window.location.pathname;
+      // 將資料存入 localStorage
+      const productData = {
+        name: productName,
+        price: price,
+        fromPage: currentPage,
+      };
+      localStorage.setItem("selectedProduct", JSON.stringify(productData));
+
+      // 跳轉到目標頁面
+      window.location.href = "./old-page-5.html";
     });
   });
-
-  //以下在page-4中會出現錯誤訊息
-  // 从 localStorage 或 sessionStorage 获取保存的产品数据
-  const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct')); // 或者使用 sessionStorage
-
-  // 如果数据存在，更新页面内容
+  const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
   if (selectedProduct) {
-    const productTitleDiv = document.querySelector('.product-title');
-    const costSpan = productTitleDiv.querySelector('.cost');
-    
-    // 更新页面的标题和价格
-    productTitleDiv.querySelector('h3').textContent = selectedProduct.name;
+    const productTitleDiv = document.querySelector(".product-title");
+    const costSpan = productTitleDiv.querySelector(".cost");
+    const cancel = document.querySelector(".cancel");
+    productTitleDiv.querySelector("h3").textContent = selectedProduct.name;
     costSpan.textContent = selectedProduct.price;
+    cancel.href = selectedProduct.fromPage;
   } else {
-    console.error('no data');
+    console.error("no data");
   }
 };
 
@@ -73,18 +71,18 @@ function navStatusChange() {
 document.querySelector(".increase").addEventListener("click", () => {
   quantity++;
   quantityDisplay.textContent = quantity;
-  if(quantity>1){
-    let button = document.querySelector('.decrease');
-    button.style.setProperty('background-color', '#EAC143', 'important');
+  if (quantity > 1) {
+    let button = document.querySelector(".decrease");
+    button.style.setProperty("background-color", "#EAC143", "important");
   }
 });
 
 document.querySelector(".decrease").addEventListener("click", () => {
   if (quantity > 1) quantity--;
   quantityDisplay.textContent = quantity;
-  if(quantity == 1){
-    let button = document.querySelector('.decrease');
-    button.style.setProperty('background-color', '#D9D9D9', 'important');
+  if (quantity == 1) {
+    let button = document.querySelector(".decrease");
+    button.style.setProperty("background-color", "#D9D9D9", "important");
   }
 });
 
