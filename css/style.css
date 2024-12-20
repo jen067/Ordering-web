@@ -403,6 +403,8 @@ main{
 .quantity{
     font-size: 40px;
     font-weight: 600;
+    width: 2.5rem;
+    text-align: center;
 }
 
 .add-to-cart,.cancel{
@@ -421,6 +423,9 @@ main{
     background-color: var(--Green02);
     color: #fff;
 }
+.add-to-cart:hover{
+    background-color: var(--Green01);
+}
 
 .cancel{
     border: 2px solid var(--Green02);
@@ -431,6 +436,23 @@ main{
     background-color: var(--Green02);
     color: #fff;
 }
+
+/*page-6*/
+.title-2{
+    font-weight: 900;
+    font-size: 64px;
+    color: var(--Green02);
+}
+.content{
+    font-weight: 900;
+    font-size: 28px;
+}
+.amount, .total-money, .name, .num{
+    display: inline;
+    color: var(--Yellow02);
+}
+
+
 
 
 

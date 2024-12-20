@@ -73,11 +73,19 @@ function navStatusChange() {
 document.querySelector(".increase").addEventListener("click", () => {
   quantity++;
   quantityDisplay.textContent = quantity;
+  if(quantity>1){
+    let button = document.querySelector('.decrease');
+    button.style.setProperty('background-color', '#EAC143', 'important');
+  }
 });
 
 document.querySelector(".decrease").addEventListener("click", () => {
   if (quantity > 1) quantity--;
   quantityDisplay.textContent = quantity;
+  if(quantity == 1){
+    let button = document.querySelector('.decrease');
+    button.style.setProperty('background-color', '#D9D9D9', 'important');
+  }
 });
 
 // 記憶先前連結
