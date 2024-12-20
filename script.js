@@ -1,64 +1,123 @@
 window.onload = function () {
   const cards = document.querySelectorAll(".card");
-  const total = document.querySelectorAll(".total");
+  const cardsN = document.querySelectorAll(".card1");
   const quantityDisplay = document.querySelector(".quantity");
-  let priceCalc = 0;
+  const quantityDisplayN = document.querySelector(".normal-quantity");
   let quantity = 1;
-  let finalProduct = "";
-  let finalQuantity = 0;
-  let finalPrice = 0;
+  let quantityN = 1;
 
+  // 通用函數：保存商品數據並跳轉頁面
+  function saveProductData(
+    card,
+    nameSelector,
+    priceSelector,
+    storageKey,
+    targetPage
+  ) {
+    const productName = card.querySelector(nameSelector).textContent.trim();
+    const price = card.querySelector(priceSelector).textContent.trim();
+    const currentPage = window.location.pathname;
+    const productData = {
+      name: productName,
+      price: price,
+      fromPage: currentPage,
+    };
+    localStorage.setItem(storageKey, JSON.stringify(productData));
+    window.location.href = targetPage;
+  }
+
+  // 點餐數量切換
+  function setupQuantityControls(
+    increaseBtn,
+    decreaseBtn,
+    display,
+    quantityVar
+  ) {
+    const updateButtonStyle = (quantity, button) => {
+      button.style.setProperty(
+        "background-color",
+        quantity > 1 ? "#EAC143" : "#D9D9D9",
+        "important"
+      );
+    };
+
+    increaseBtn.addEventListener("click", () => {
+      quantityVar++;
+      display.textContent = quantityVar;
+      updateButtonStyle(quantityVar, decreaseBtn);
+    });
+
+    decreaseBtn.addEventListener("click", () => {
+      if (quantityVar > 1) quantityVar--;
+      display.textContent = quantityVar;
+      updateButtonStyle(quantityVar, decreaseBtn);
+    });
+  }
+
+  // 綁定卡片點擊事件
   cards.forEach((card) => {
-    card.addEventListener("click", function (event) {
-      // 獲取商品名稱和價格
-      const productName = this.querySelector(".name").textContent.trim();
-      const price = this.querySelector(".price").textContent.trim();
-      // 獲取當前頁面路徑
-      const currentPage = window.location.pathname;
-      // 將資料存入 localStorage
-      const productData = {
-        name: productName,
-        price: price,
-        fromPage: currentPage,
-      };
-      localStorage.setItem("selectedProduct", JSON.stringify(productData));
-
-      // 跳轉到目標頁面
-      window.location.href = "./old-page-5.html";
+    card.addEventListener("click", function () {
+      saveProductData(
+        card,
+        ".name",
+        ".price",
+        "selectedProduct",
+        "./old-page-5.html"
+      );
     });
   });
+
+  cardsN.forEach((card) => {
+    card.addEventListener("click", function () {
+      saveProductData(
+        card,
+        ".name1",
+        ".price1",
+        "selectedProduct1",
+        "./normal-1.html"
+      );
+    });
+  });
+
+  // 處理 selectedProduct 資料
   const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
   if (selectedProduct) {
     const productTitleDiv = document.querySelector(".product-title");
     const costSpan = productTitleDiv.querySelector(".cost");
     const cancel = document.querySelector(".cancel");
+
     productTitleDiv.querySelector("h3").textContent = selectedProduct.name;
-    finalProduct = productTitleDiv.querySelector("h3").textContent;
     costSpan.textContent = selectedProduct.price;
     cancel.href = selectedProduct.fromPage;
-    // 點餐數量切換
-    document.querySelector(".increase").addEventListener("click", () => {
-      quantity++;
-      quantityDisplay.textContent = quantity;
-      if (quantity > 1) {
-        let button = document.querySelector(".decrease");
-        button.style.setProperty("background-color", "#EAC143", "important");
-      }
-      priceCalc += selectedProduct.price * quantity;
-    });
-    document.querySelector(".decrease").addEventListener("click", () => {
-      if (quantity > 1) quantity--;
-      quantityDisplay.textContent = quantity;
-      if (quantity == 1) {
-        let button = document.querySelector(".decrease");
-        button.style.setProperty("background-color", "#D9D9D9", "important");
-      }
-      priceCalc += selectedProduct.price * quantity;
-    });
+
+    setupQuantityControls(
+      document.querySelector(".increase"),
+      document.querySelector(".decrease"),
+      quantityDisplay,
+      quantity
+    );
   } else {
-    console.error("no data");
+    console.error("No data for selectedProduct.");
   }
-  console.log(finalProduct);
+
+  // 處理 selectedProduct1 資料
+  const selectedProduct1 = JSON.parse(localStorage.getItem("selectedProduct1"));
+  if (selectedProduct1) {
+    const productTitleDiv1 = document.querySelector(".normal-product-title");
+    const costSpan1 = productTitleDiv1.querySelector(".normal-cost");
+
+    productTitleDiv1.querySelector("h3").textContent = selectedProduct1.name;
+    costSpan1.textContent = selectedProduct1.price;
+
+    setupQuantityControls(
+      document.querySelector(".normal-increase"),
+      document.querySelector(".normal-decrease"),
+      quantityDisplayN,
+      quantityN
+    );
+  } else {
+    console.error("No data for selectedProduct1.");
+  }
 };
 
 const navBtn = document.querySelectorAll(".nav-btn");

@@ -376,7 +376,7 @@ main{
     text-align: left;
 }
 
-.quantity-control{
+.quantity-control,.normal-quantity-control{
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -385,7 +385,7 @@ main{
     margin-top: 4rem;
 }
 
-.quantity-control button{
+.quantity-control button,.normal-quantity-control button{
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -396,15 +396,19 @@ main{
     color: #fff;
 }
 
-.decrease{
+.decrease,.normal-decrease{
     background-color: #D9D9D9!important;
 }
 
-.quantity{
+.quantity,.normal-quantity{
     font-size: 40px;
     font-weight: 600;
     width: 2.5rem;
     text-align: center;
+}
+
+.normal-quantity{
+    font-size: 32px;
 }
 
 .add-to-cart,.cancel{
@@ -451,6 +455,56 @@ main{
     display: inline;
     color: var(--Yellow02);
 }
+
+/*normal product*/
+.normal-product{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.normal-product img{
+    width: 278px;
+    height: 248px;
+    background-color: var(--Green02);
+}
+
+.normal-product-title{
+    display: flex;
+    justify-content: space-between;
+    width: 278px;
+    margin-top: 2rem;
+}
+
+.normal-product-title h3{
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.normal-product-title p{
+    font-size: 32px;
+    color: var(--Green02);
+    font-weight: 600;
+}
+.price{
+    display: inline;
+}
+
+.normal-consist{
+    width: 278px;
+    font-size: 24px;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.normalAdd{
+    width: 278px;
+    font-size: 32px;
+}
+
 
 
 
