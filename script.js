@@ -1,9 +1,6 @@
 window.onload = function () {
-  const cards = document.querySelectorAll(".card");
   const cardsN = document.querySelectorAll(".card1");
-  const quantityDisplay = document.querySelector(".quantity");
   const quantityDisplayN = document.querySelector(".normal-quantity");
-  let quantity = 1;
   let quantityN = 1;
 
   // 通用函數：保存商品數據並跳轉頁面
@@ -54,19 +51,6 @@ window.onload = function () {
     });
   }
 
-  // 綁定卡片點擊事件
-  cards.forEach((card) => {
-    card.addEventListener("click", function () {
-      saveProductData(
-        card,
-        ".name",
-        ".price",
-        "selectedProduct",
-        "./old-page-5.html"
-      );
-    });
-  });
-
   cardsN.forEach((card) => {
     card.addEventListener("click", function () {
       saveProductData(
@@ -79,42 +63,61 @@ window.onload = function () {
     });
   });
 
-  // 處理 selectedProduct 資料
-  const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
-  if (selectedProduct) {
-    const productTitleDiv = document.querySelector(".product-title");
-    const costSpan = productTitleDiv.querySelector(".cost");
-    const cancel = document.querySelector(".cancel");
-
-    productTitleDiv.querySelector("h3").textContent = selectedProduct.name;
-    costSpan.textContent = selectedProduct.price;
-    cancel.href = selectedProduct.fromPage;
-
-    setupQuantityControls(
-      document.querySelector(".increase"),
-      document.querySelector(".decrease"),
-      quantityDisplay,
-      quantity
-    );
-  } else {
-    console.error("No data for selectedProduct.");
-  }
-
   // 處理 selectedProduct1 資料
   const selectedProduct1 = JSON.parse(localStorage.getItem("selectedProduct1"));
   if (selectedProduct1) {
+    // 確認 normal-product-title 是否存在
     const productTitleDiv1 = document.querySelector(".normal-product-title");
-    const costSpan1 = productTitleDiv1.querySelector(".normal-cost");
+    if (productTitleDiv1) {
+      const costSpan1 = productTitleDiv1.querySelector(".normal-cost");
+      const normalAdd = document.querySelector(".normalAdd");
+      if (costSpan1 && normalAdd) {
+        productTitleDiv1.querySelector("h3").textContent =
+          selectedProduct1.name;
+        costSpan1.textContent = selectedProduct1.price;
+        normalAdd.href = selectedProduct1.fromPage;
 
-    productTitleDiv1.querySelector("h3").textContent = selectedProduct1.name;
-    costSpan1.textContent = selectedProduct1.price;
+        normalAdd.addEventListener("click", () => {
+          // 設置標記，用於目標頁面顯示 success
+          localStorage.setItem("showSuccess", "true");
+          // 跳轉到 fromPage
+          window.location.href = selectedProduct1.fromPage;
+        });
+      } else {
+        console.error("Required elements (costSpan1 or normalAdd) not found.");
+      }
+    } else {
+      console.warn(".normal-product-title not found on this page.");
+    }
 
-    setupQuantityControls(
-      document.querySelector(".normal-increase"),
-      document.querySelector(".normal-decrease"),
-      quantityDisplayN,
-      quantityN
-    );
+    // 處理 showSuccess 狀態
+    const showSuccess = localStorage.getItem("showSuccess");
+    if (showSuccess === "true") {
+      const success = document.querySelector(".success");
+
+      if (success) {
+        success.style.display = "block";
+      } else {
+        console.error(".success element not found on this page.");
+      }
+
+      // 清除標記，避免下次進入該頁面時仍然顯示
+      localStorage.removeItem("showSuccess");
+    }
+
+    // 設置數量控制（僅在需要的頁面設置）
+    const increaseBtn = document.querySelector(".normal-increase");
+    const decreaseBtn = document.querySelector(".normal-decrease");
+    if (increaseBtn && decreaseBtn) {
+      setupQuantityControls(
+        increaseBtn,
+        decreaseBtn,
+        quantityDisplayN,
+        quantityN
+      );
+    } else {
+      console.warn("Quantity controls not found on this page.");
+    }
   } else {
     console.error("No data for selectedProduct1.");
   }
@@ -125,6 +128,7 @@ const btnWrapper = document.querySelectorAll(".btn-wrapper");
 const setWrapper = document.querySelector(".set-wrapper");
 const mainWrapper = document.querySelector(".main-wrapper");
 const drinkWrapper = document.querySelector(".drink-wrapper");
+const normalAdd = document.querySelector(".normalAdd");
 
 // 標準模式類別切換
 navBtn.forEach((e) => {

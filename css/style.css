@@ -411,7 +411,7 @@ main{
     font-size: 32px;
 }
 
-.add-to-cart,.cancel{
+.add-to-cart,.cancel,.normalAdd{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -423,11 +423,11 @@ main{
     margin-top: 1rem;
 }
 
-.add-to-cart{
+.add-to-cart,.normalAdd{
     background-color: var(--Green02);
     color: #fff;
 }
-.add-to-cart:hover{
+.add-to-cart:hover,.normalAdd:hover{
     background-color: var(--Green01);
 }
 
@@ -489,7 +489,7 @@ main{
     color: var(--Green02);
     font-weight: 600;
 }
-.price{
+.price,.price1{
     display: inline;
 }
 
@@ -503,6 +503,21 @@ main{
 .normalAdd{
     width: 278px;
     font-size: 32px;
+}
+
+.success{
+    position: absolute;
+    width: 50%;
+    background-color: #D5EBC0;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    text-align: center;
+    padding: 2rem;
+    font-weight: 600;
+    letter-spacing: .5rem;
+    display: none;
 }
 
 
