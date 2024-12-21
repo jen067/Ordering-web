@@ -187,6 +187,11 @@ main{
     font-weight: 700;
 }
 
+#page-3 img{
+    height: 74px;
+    width: 74px;
+    margin-right: 3rem;
+}
 #old-page-3-1 .order-title,#old-page-3-2 .order-title,#old-page-3-3 .order-title{
     align-items: flex-end;
 }
@@ -202,7 +207,6 @@ main{
 #page-1 img{
     height: 300px;
     width: 300px;
-    background-color: #8CB369;
     margin: 1.5rem 0;
 }
 
@@ -354,7 +358,6 @@ main{
 .product img{
     width: 315px;
     height: 315px;
-    background-color: var(--Green02);
 }
 
 .product-title{

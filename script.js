@@ -8,15 +8,18 @@ window.onload = function () {
     card,
     nameSelector,
     priceSelector,
+    imgSelector,
     storageKey,
     targetPage
   ) {
     const productName = card.querySelector(nameSelector).textContent.trim();
     const price = card.querySelector(priceSelector).textContent.trim();
+    const image = card.querySelector(imgSelector).src.trim();
     const currentPage = window.location.pathname;
     const productData = {
       name: productName,
       price: price,
+      image: image,
       fromPage: currentPage,
     };
     localStorage.setItem(storageKey, JSON.stringify(productData));
@@ -57,6 +60,7 @@ window.onload = function () {
         card,
         ".name1",
         ".price1",
+        "img",
         "selectedProduct1",
         "./normal-1.html"
       );
@@ -71,10 +75,12 @@ window.onload = function () {
     if (productTitleDiv1) {
       const costSpan1 = productTitleDiv1.querySelector(".normal-cost");
       const normalAdd = document.querySelector(".normalAdd");
-      if (costSpan1 && normalAdd) {
+      const imagesrc = document.querySelector(".image");
+      if (costSpan1 && normalAdd && imagesrc) {
         productTitleDiv1.querySelector("h3").textContent =
           selectedProduct1.name;
         costSpan1.textContent = selectedProduct1.price;
+        imagesrc.src = selectedProduct1.image;
         normalAdd.href = selectedProduct1.fromPage;
 
         normalAdd.addEventListener("click", () => {
