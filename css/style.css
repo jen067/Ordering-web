@@ -211,13 +211,15 @@ main{
     gap: 2rem;
 }
 
-#old-page-8,#old-page-9{
+#old-page-8,#old-page-9,#page-4{
     gap: 2rem;
 }
 
 #page-2 .title-1,#page-3 .title-1,#old-page-8,#old-page-9{
     font-size: 36px;
 }
+
+
 
 /*page-2*/
 .tip{
@@ -774,6 +776,35 @@ main{
 
 #old-page-9 .title-1 span{
     font-size: 32px;
+}
+
+/* page-4*/
+
+#page-4 .title-1,#page-4 .button{
+    font-size: 36px;
+}
+
+#page-5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    background-color: var(--Green02);
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 2;
+    text-align: center;
+}
+
+#page-5 span{
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.clock{
+    padding-right: .5rem;
 }
 
 

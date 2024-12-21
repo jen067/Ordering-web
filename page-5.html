@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>點餐頁面</title>
+    <!--Inter-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="page-5">
+    <div class="finish-page">
+      謝謝惠顧！<br />請攜帶號碼牌至櫃台取餐<br /><span
+        ><span class="clock">5</span>秒後頁面將自動導向至起始頁</span
+      >
+    </div>
+  </body>
+  <script>
+    let counter = 5;
+    const clock = document.querySelector(".clock");
+    const interval = setInterval(() => {
+      counter--;
+      clock.textContent = counter;
+      if (counter <= 0) {
+        clearInterval(interval); // 停止倒數
+        window.location.href = "./index.html"; // 跳轉到目標頁面
+      }
+    }, 1000);
+  </script>
+</html>
