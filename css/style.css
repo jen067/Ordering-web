@@ -210,7 +210,12 @@ main{
 #page-2,#page-3{
     gap: 2rem;
 }
-#page-2 .title-1,#page-3 .title-1{
+
+#old-page-8,#old-page-9{
+    gap: 2rem;
+}
+
+#page-2 .title-1,#page-3 .title-1,#old-page-8,#old-page-9{
     font-size: 36px;
 }
 
@@ -621,7 +626,7 @@ main{
     margin-bottom: 20px;
 }
 
-.button-10 .close{
+#old-page-7  .button-10 .close{
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -638,13 +643,13 @@ main{
 
 }
 
-.button-10 img{
+#old-page-7  .button-10 img{
     width: 102px;
     height: 102px;
     background-color: var(--Green02);
 }
 
-.btn-10-right{
+#old-page-7  .btn-10-right{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -652,27 +657,27 @@ main{
 
 }
 
-.cart-txt-wrapper,.cart-btn-wrapper{
+#old-page-7 .cart-txt-wrapper,.cart-btn-wrapper{
     display: flex;
     align-items: center;
 }
 
-.cart-txt-wrapper{
+#old-page-7 .cart-txt-wrapper{
     font-size: 2rem;
     font-weight: 600;
     gap: 1rem;
 }
 
-.cart-btn-wrapper{
+#old-page-7 .cart-btn-wrapper{
     justify-content: space-between;
     
 }
 
-.cart-btn-wrapper span{
+#old-page-7 .cart-btn-wrapper span{
     font-size: 24px;
 }
 
-.cart-decrease,.cart-increase{
+#old-page-7 .cart-decrease,.cart-increase{
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -684,15 +689,15 @@ main{
     background-color: var(--Yellow02);
 }
 
-.cart-decrease{
+#old-page-7 .cart-decrease{
     background-color: #D9D9D9;
 }
 
-.cart-quantity{
+#old-page-7 .cart-quantity{
     font-size: 2rem;
 }
 
-.total-wrapper{
+#old-page-7 .total-wrapper{
     width: 307px;
     font-size: 2rem;
     display: flex;
@@ -706,18 +711,18 @@ main{
     background-color: black;
 }
 
-.total-quantity,.total-price{
+#old-page-7 .total-quantity,.total-price{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.total-wrapper span{
+#old-page-7 .total-wrapper span{
     font-size: 2rem;
     font-weight: 600;
 }
 
-.confirm-btn-wrapper{
+#old-page-7 .confirm-btn-wrapper{
     width: 307px;
     display: flex;
     align-items: center;
@@ -726,20 +731,20 @@ main{
     margin: 1rem 0 2rem 0;
 }
 
-.confirm-left{
+#old-page-7 .confirm-left{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-size: 18px;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.confirm-left a{
+#old-page-7 .confirm-left a{
     display: inline-flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    padding: 0.1rem 0;
+    padding: 0.2rem 0;
     color: var(--Green02);
     width: 169px;
     border-radius: .5rem;
@@ -747,7 +752,7 @@ main{
     box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
-.confirm-right{
+#old-page-7 .confirm-right{
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -762,6 +767,14 @@ main{
     box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
+/* old-page-9*/
+#old-page-9 .title-1{
+    text-align: center;
+}
+
+#old-page-9 .title-1 span{
+    font-size: 32px;
+}
 
 
 
