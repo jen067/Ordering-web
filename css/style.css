@@ -241,6 +241,10 @@ img{
     width: 80%;
 }
 
+.tip img{
+    opacity: 0;
+}
+
 /*normal-page*/
 #normal-page{
     justify-content: start;
