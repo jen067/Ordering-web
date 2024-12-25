@@ -34,6 +34,10 @@ img{
     object-fit: cover;
 }
 
+.overimg{
+    object-fit: contain;
+}
+
 .button{
     display: inline-flex;
     justify-content: center;
