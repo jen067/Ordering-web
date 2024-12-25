@@ -8,17 +8,20 @@ window.onload = function () {
     card,
     nameSelector,
     priceSelector,
+    contentSelector,
     imgSelector,
     storageKey,
     targetPage
   ) {
     const productName = card.querySelector(nameSelector).textContent.trim();
     const price = card.querySelector(priceSelector).textContent.trim();
+    const content = card.querySelector(contentSelector).textContent.trim();
     const image = card.querySelector(imgSelector).src.trim();
     const currentPage = window.location.pathname;
     const productData = {
       name: productName,
       price: price,
+      content: content,
       image: image,
       fromPage: currentPage,
     };
@@ -61,6 +64,7 @@ window.onload = function () {
         card,
         ".name",
         ".price",
+        ".hidden-content",
         "img",
         "selectedProduct",
         "./old-page-5.html"
@@ -74,11 +78,13 @@ window.onload = function () {
     const productTitleDiv = document.querySelector(".product-title");
     if (productTitleDiv) {
       const costSpan = productTitleDiv.querySelector(".cost");
+      const oldcontent = document.querySelector(".consist");
       const cancel = document.querySelector(".cancel");
       const image = document.querySelector(".image");
       if (costSpan && cancel && image) {
         productTitleDiv.querySelector("h3").textContent = selectedProduct.name;
         costSpan.textContent = selectedProduct.price;
+        oldcontent.textContent = selectedProduct.content;
         image.src = selectedProduct.image;
         cancel.href = selectedProduct.fromPage;
       }

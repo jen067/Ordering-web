@@ -40,6 +40,10 @@ main{
     font-size: 36px;
     font-weight: 900;
 }
+.hidden-content{
+    position: absolute;
+    opacity: 0;
+}
 .title-1{
     font-weight: 900;
 }
@@ -167,9 +171,9 @@ main{
 }
 
 .button-7 img{
-    width: 175px;
+    width: 124px;
     height: 124px;
-    background-color: var(--Green02);
+    background-color: white;
 }
 
 .button-8 img{
